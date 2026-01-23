@@ -1,10 +1,12 @@
 {
   "name": "n8n-nodes-cloro",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "n8n community node for cloro API - Extract structured data from AI responses and search results",
   "license": "MIT",
   "homepage": "https://github.com/cloro-dev/n8n-nodes-cloro#readme",
-  "keywords": ["n8n-community-node-package"],
+  "keywords": [
+    "n8n-community-node-package"
+  ],
   "author": {
     "name": "rbatista191",
     "email": "ricardo.serodio.batista@gmail.com"
@@ -22,12 +24,18 @@
     "release": "n8n-node release",
     "prepublishOnly": "n8n-node prerelease"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "n8n": {
     "n8nNodesApiVersion": 1,
     "strict": true,
-    "credentials": ["dist/credentials/CloroApi.credentials.js"],
-    "nodes": ["dist/nodes/Cloro/Cloro.node.js"]
+    "credentials": [
+      "dist/credentials/CloroApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/Cloro/Cloro.node.js"
+    ]
   },
   "devDependencies": {
     "@n8n/node-cli": "*",
@@ -36,5 +44,7 @@
     "release-it": "^19.0.4",
     "typescript": "5.9.2"
   },
-  "peerDependencies": { "n8n-workflow": "*" }
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  }
 }

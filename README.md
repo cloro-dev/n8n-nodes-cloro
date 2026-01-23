@@ -1,8 +1,8 @@
 # n8n-nodes-cloro
 
-This is an n8n community node for [Cloro API](https://docs.cloro.dev). It lets you extract structured data from AI responses and search results in your n8n workflows.
+This is an n8n community node for [cloro API](https://docs.cloro.dev). It lets you extract structured data from AI responses and search results in your n8n workflows.
 
-Cloro is an API service that provides structured data extraction from multiple AI providers including ChatGPT, Google Search, Google Gemini, Perplexity, Microsoft Copilot, Grok, and Google AI Mode.
+cloro is an API service that provides structured data extraction from multiple AI providers including ChatGPT, Google Search, Google Gemini, Perplexity, Microsoft Copilot, Grok, and Google AI Mode.
 
 [n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/sustainable-use-license/) workflow automation platform.
 
@@ -53,15 +53,15 @@ Check the status of a monitoring task using its task ID.
 
 ## Credentials
 
-To use this node, you need a Cloro API key.
+To use this node, you need a cloro API key.
 
 ### Prerequisites
 1. Sign up at [cloro.dev](https://cloro.dev) to get your API key
-2. Visit the [Cloro documentation](https://docs.cloro.dev) for API details
+2. Visit the [cloro documentation](https://docs.cloro.dev) for API details
 
 ### Authentication
 The node uses API Key authentication via Bearer token:
-- In n8n, create a new credential for "Cloro API"
+- In n8n, create a new credential for "cloro API"
 - Enter your API key in the "API Key" field
 - The node automatically includes the key in the Authorization header as `Bearer YOUR_API_KEY`
 
@@ -75,7 +75,7 @@ The node uses API Key authentication via Bearer token:
 
 ### Basic Example Workflow
 
-1. Add the **Cloro** node to your workflow
+1. Add the **cloro** node to your workflow
 2. Select your **Provider** (e.g., ChatGPT, Google Search)
 3. Choose the **Operation** (typically "Monitor")
 4. Configure your parameters:
@@ -86,7 +86,7 @@ The node uses API Key authentication via Bearer token:
 ### Example: Monitoring Google Search Results
 
 ```
-Node: Cloro
+Node: cloro
 Provider: Google Search
 Operation: Monitor
 Query: "best coffee shops in New York"
@@ -100,7 +100,7 @@ Include Markdown: true
 ### Example: Extracting Data from ChatGPT
 
 ```
-Node: Cloro
+Node: cloro
 Provider: ChatGPT
 Operation: Monitor
 Prompt: "What are the top 5 programming languages in 2025?"
@@ -112,7 +112,7 @@ Include Query Fan-Out: true
 ### Using Get Countries
 
 ```
-Node: Cloro
+Node: cloro
 Operation: Get Countries
 Filter by Model: chatgpt (optional)
 ```
@@ -122,8 +122,8 @@ This returns a list of countries supported by the specified provider.
 ## Resources
 
 * [n8n community nodes documentation](https://docs.n8n.io/integrations/#community-nodes)
-* [Cloro API Documentation](https://docs.cloro.dev)
-* [Cloro Website](https://cloro.dev)
+* [cloro API Documentation](https://docs.cloro.dev)
+* [cloro Website](https://cloro.dev)
 
 ## Version History
 

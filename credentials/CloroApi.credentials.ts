@@ -10,7 +10,7 @@ import type {
 export class CloroApi implements ICredentialType {
 	name = 'cloroApi';
 
-	displayName = 'Cloro API';
+	displayName = 'cloro API';
 
 	icon: Icon = { light: 'file:../nodes/Cloro/cloro.light.svg', dark: 'file:../nodes/Cloro/cloro.dark.svg' };
 

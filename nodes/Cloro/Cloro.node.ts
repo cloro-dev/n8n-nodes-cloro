@@ -12,7 +12,7 @@ import { cloroApiRequest, getCountries, getModels } from './GenericFunctions';
 
 export class Cloro implements INodeType {
 	description: INodeTypeDescription = {
-		displayName: 'cloro',
+		displayName: 'Cloro',
 		name: 'cloro',
 		icon: 'file:cloro.light.svg',
 		group: ['transform'],
@@ -20,7 +20,7 @@ export class Cloro implements INodeType {
 		subtitle: '={{$parameter["operation"]}}',
 		description: 'Extract structured data from AI responses and search results via cloro API',
 		defaults: {
-			name: 'cloro',
+			name: 'Cloro',
 		},
 		usableAsTool: true,
 		inputs: [NodeConnectionTypes.Main],
@@ -43,7 +43,7 @@ export class Cloro implements INodeType {
 
 	async execute(this: IExecuteFunctions): Promise<INodeExecutionData[][]> {
 		const items = this.getInputData();
-		const returnData: IDataObject[] = [];
+		const returnData: INodeExecutionData[] = [];
 
 		const provider = this.getNodeParameter('provider', 0) as string;
 		const operation = this.getNodeParameter('operation', 0) as string;
@@ -186,11 +186,17 @@ export class Cloro implements INodeType {
 					response = await cloroApiRequest.call(this, 'GET', `/v1/tasks/${taskId}`);
 				}
 
-				returnData.push(response as IDataObject);
+				returnData.push({
+					json: response as IDataObject,
+					pairedItem: { item: i },
+				});
 			} catch (error) {
 				if (this.continueOnFail()) {
 					returnData.push({
-						error: error instanceof Error ? error.message : String(error),
+						json: {
+							error: error instanceof Error ? error.message : String(error),
+						},
+						pairedItem: { item: i },
 					});
 					continue;
 				}
@@ -198,6 +204,6 @@ export class Cloro implements INodeType {
 			}
 		}
 
-		return [this.helpers.returnJsonArray(returnData)];
+		return [returnData];
 	}
 }

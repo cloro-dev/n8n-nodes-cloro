@@ -5,7 +5,7 @@ import type {
 	INodeType,
 	INodeTypeDescription,
 } from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow';
+import { NodeApiError, NodeConnectionTypes } from 'n8n-workflow';
 
 import { descriptions } from './descriptions';
 import { cloroApiRequest, getCountries, getModels } from './GenericFunctions';
@@ -200,7 +200,7 @@ export class Cloro implements INodeType {
 					});
 					continue;
 				}
-				throw error;
+				throw new NodeApiError(this.getNode(), error);
 			}
 		}
 

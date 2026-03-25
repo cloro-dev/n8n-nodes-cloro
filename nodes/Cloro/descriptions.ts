@@ -45,12 +45,6 @@ export const descriptions: INodeProperties[] = [
 		noDataExpression: true,
 		options: [
 			{
-				name: 'Monitor',
-				value: 'monitor',
-				description: 'Extract structured data from provider',
-				action: 'Extract structured data from provider',
-			},
-			{
 				name: 'Get Countries',
 				value: 'getCountries',
 				description: 'Get list of supported countries',
@@ -61,6 +55,12 @@ export const descriptions: INodeProperties[] = [
 				value: 'getTaskStatus',
 				description: 'Get status of a monitoring task',
 				action: 'Get status of a monitoring task',
+			},
+			{
+				name: 'Monitor',
+				value: 'monitor',
+				description: 'Extract structured data from provider',
+				action: 'Extract structured data from provider',
 			},
 		],
 		default: 'monitor',

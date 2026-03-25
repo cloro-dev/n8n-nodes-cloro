@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-cloro",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "n8n community node for cloro API - Extract structured data from AI responses and search results",
   "license": "MIT",
   "homepage": "https://github.com/cloro-dev/n8n-nodes-cloro#readme",

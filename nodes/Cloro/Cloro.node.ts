@@ -14,7 +14,10 @@ export class Cloro implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Cloro',
 		name: 'cloro',
-		icon: 'file:cloro.light.svg',
+		icon: {
+			light: 'file:cloro.light.svg',
+			dark: 'file:cloro.dark.svg',
+		},
 		group: ['transform'],
 		version: 1,
 		subtitle: '={{$parameter["operation"]}}',

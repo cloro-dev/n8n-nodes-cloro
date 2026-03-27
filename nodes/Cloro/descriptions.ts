@@ -2,10 +2,28 @@ import type { INodeProperties } from 'n8n-workflow';
 
 export const descriptions: INodeProperties[] = [
 	{
+		displayName: 'Resource',
+		name: 'resource',
+		type: 'options',
+		noDataExpression: true,
+		options: [
+			{
+				name: 'Data Extraction',
+				value: 'dataExtraction',
+			},
+		],
+		default: 'dataExtraction',
+	},
+	{
 		displayName: 'Provider',
 		name: 'provider',
 		type: 'options',
 		noDataExpression: true,
+		displayOptions: {
+			show: {
+				resource: ['dataExtraction'],
+			},
+		},
 		options: [
 			{
 				name: 'ChatGPT',
@@ -43,6 +61,11 @@ export const descriptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
+		displayOptions: {
+			show: {
+				resource: ['dataExtraction'],
+			},
+		},
 		options: [
 			{
 				name: 'Get Countries',
@@ -79,6 +102,7 @@ export const descriptions: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				resource: ['dataExtraction'],
 				operation: ['monitor'],
 				provider: ['google'],
 			},
@@ -95,6 +119,7 @@ export const descriptions: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				resource: ['dataExtraction'],
 				operation: ['monitor'],
 				provider: ['chatgpt', 'perplexity', 'copilot', 'gemini', 'grok', 'aimode'],
 			},
@@ -104,13 +129,14 @@ export const descriptions: INodeProperties[] = [
 		displayName: 'Country Code Name or ID',
 		name: 'country',
 		type: 'options',
-		description: 'Choose from the list. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.',
+		description: 'Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.',
 		typeOptions: {
 			loadOptionsMethod: 'getCountries',
 		},
 		default: '',
 		displayOptions: {
 			show: {
+				resource: ['dataExtraction'],
 				operation: ['monitor'],
 			},
 		},
@@ -123,6 +149,7 @@ export const descriptions: INodeProperties[] = [
 		description: 'Canonical city name for localized search (e.g., "New York, NY, US")',
 		displayOptions: {
 			show: {
+				resource: ['dataExtraction'],
 				operation: ['monitor'],
 				provider: ['google'],
 			},
@@ -146,6 +173,7 @@ export const descriptions: INodeProperties[] = [
 		],
 		displayOptions: {
 			show: {
+				resource: ['dataExtraction'],
 				operation: ['monitor'],
 				provider: ['google'],
 			},
@@ -163,6 +191,7 @@ export const descriptions: INodeProperties[] = [
 		},
 		displayOptions: {
 			show: {
+				resource: ['dataExtraction'],
 				operation: ['monitor'],
 				provider: ['google'],
 			},
@@ -176,6 +205,7 @@ export const descriptions: INodeProperties[] = [
 		description: 'Whether to include raw HTML content from the response',
 		displayOptions: {
 			show: {
+				resource: ['dataExtraction'],
 				operation: ['monitor'],
 			},
 		},
@@ -188,6 +218,7 @@ export const descriptions: INodeProperties[] = [
 		description: 'Whether to include AI Overview data in the response',
 		displayOptions: {
 			show: {
+				resource: ['dataExtraction'],
 				operation: ['monitor'],
 				provider: ['google'],
 			},
@@ -201,6 +232,7 @@ export const descriptions: INodeProperties[] = [
 		description: 'Whether to include markdown-formatted response in the result',
 		displayOptions: {
 			show: {
+				resource: ['dataExtraction'],
 				operation: ['monitor'],
 				provider: ['chatgpt', 'perplexity', 'copilot', 'gemini', 'grok', 'aimode', 'google'],
 			},
@@ -214,6 +246,7 @@ export const descriptions: INodeProperties[] = [
 		description: 'Whether to include raw streaming response payload',
 		displayOptions: {
 			show: {
+				resource: ['dataExtraction'],
 				operation: ['monitor'],
 				provider: ['chatgpt'],
 			},
@@ -227,6 +260,7 @@ export const descriptions: INodeProperties[] = [
 		description: 'Whether to include the query fan-out used to generate the response',
 		displayOptions: {
 			show: {
+				resource: ['dataExtraction'],
 				operation: ['monitor'],
 				provider: ['chatgpt'],
 			},
@@ -248,6 +282,7 @@ export const descriptions: INodeProperties[] = [
 		default: '',
 		displayOptions: {
 			show: {
+				resource: ['dataExtraction'],
 				operation: ['getCountries'],
 			},
 		},
@@ -263,6 +298,7 @@ export const descriptions: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				resource: ['dataExtraction'],
 				operation: ['getTaskStatus'],
 			},
 		},

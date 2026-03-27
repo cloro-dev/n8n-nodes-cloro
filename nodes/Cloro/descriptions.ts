@@ -22,6 +22,7 @@ export const descriptions: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				resource: ['dataExtraction'],
+				operation: ['monitor'],
 			},
 		},
 		options: [

@@ -1,6 +1,6 @@
 # n8n-nodes-cloro
 
-This is an n8n community node for [cloro API](https://docs.cloro.dev). It lets you extract structured data from AI responses and search results in your n8n workflows.
+This is an n8n community node for [cloro API](https://cloro.dev/docs). It lets you extract structured data from AI responses and search results in your n8n workflows.
 
 cloro is an API service that provides structured data extraction from multiple AI providers including ChatGPT, Google Search, Google Gemini, Perplexity, Microsoft Copilot, Grok, and Google AI Mode.
 
@@ -57,7 +57,7 @@ To use this node, you need a cloro API key.
 
 ### Prerequisites
 1. Sign up at [cloro.dev](https://cloro.dev) to get your API key
-2. Visit the [cloro documentation](https://docs.cloro.dev) for API details
+2. Visit the [cloro documentation](https://cloro.dev/docs) for API details
 
 ### Authentication
 The node uses API Key authentication via Bearer token:
@@ -122,7 +122,7 @@ This returns a list of countries supported by the specified provider.
 ## Resources
 
 * [n8n community nodes documentation](https://docs.n8n.io/integrations/#community-nodes)
-* [cloro API Documentation](https://docs.cloro.dev)
+* [cloro API Documentation](https://cloro.dev/docs)
 * [cloro Website](https://cloro.dev)
 
 ## Version History

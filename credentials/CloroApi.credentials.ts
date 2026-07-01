@@ -14,7 +14,7 @@ export class CloroApi implements ICredentialType {
 
 	icon: Icon = { light: 'file:../nodes/Cloro/cloro.light.svg', dark: 'file:../nodes/Cloro/cloro.dark.svg' };
 
-	documentationUrl = 'https://docs.cloro.dev';
+	documentationUrl = 'https://cloro.dev/docs';
 
 	properties: INodeProperties[] = [
 		{

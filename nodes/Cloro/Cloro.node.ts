@@ -19,7 +19,7 @@ export class Cloro implements INodeType {
 			dark: 'file:cloro.dark.svg',
 		},
 		group: ['transform'],
-		version: 1,
+		version: [1, 2],
 		subtitle: '={{$parameter["operation"]}}',
 		description: 'Extract structured data from AI responses and search results via cloro API',
 		defaults: {
@@ -48,8 +48,29 @@ export class Cloro implements INodeType {
 		const items = this.getInputData();
 		const returnData: INodeExecutionData[] = [];
 
-		const provider = this.getNodeParameter('provider', 0) as string;
-		const operation = this.getNodeParameter('operation', 0) as string;
+		const version = this.getNode().typeVersion;
+
+		// Version 1 selects the engine via a provider dropdown; version 2
+		// models each engine as its own resource, plus country/task utilities.
+		let provider = '';
+		let operation: string;
+
+		if (version >= 2) {
+			const resource = this.getNodeParameter('resource', 0) as string;
+			const v2Operation = this.getNodeParameter('operation', 0) as string;
+
+			if (resource === 'country') {
+				operation = 'getCountries';
+			} else if (resource === 'task') {
+				operation = 'getTaskStatus';
+			} else {
+				provider = resource;
+				operation = v2Operation;
+			}
+		} else {
+			provider = this.getNodeParameter('provider', 0) as string;
+			operation = this.getNodeParameter('operation', 0) as string;
+		}
 
 		let response;
 

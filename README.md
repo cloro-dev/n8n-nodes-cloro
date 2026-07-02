@@ -28,10 +28,12 @@ Or use the community nodes installation feature in the n8n UI by searching for `
 
 ## Operations
 
-### Monitor
-Extract structured data from various AI and search providers.
+Since version 0.2.0 each AI engine is its own resource, mapping 1:1 to the matching [cloro monitor endpoint](https://cloro.dev/docs/guides/making-requests/sync) (`POST /v1/monitor/<engine>`). Workflows built with earlier versions keep the original provider dropdown and continue to work unchanged.
 
-**Supported Providers:**
+### Engine resources (Monitor)
+
+Each engine resource supports a **Monitor** operation that extracts structured data from that engine:
+
 - **ChatGPT** - OpenAI's ChatGPT with optional raw response and search queries
 - **Google AI Mode** - Google's AI-powered search mode
 - **Google Gemini** - Google's Gemini AI model
@@ -40,15 +42,15 @@ Extract structured data from various AI and search providers.
 - **Microsoft Copilot** - Microsoft's Copilot AI
 - **Perplexity** - Perplexity AI search
 
-**Provider-Specific Options:**
+**Engine-Specific Options:**
 - **Google Search**: Query, country, city, device type (desktop/mobile), number of pages, include HTML, include AI Overview, include markdown
-- **Other AI Providers**: Prompt, country, include HTML, include markdown
+- **Other AI Engines**: Prompt, country, include HTML, include markdown
 - **ChatGPT (additional)**: Include raw response, include search queries (query fan-out)
 
-### Get Countries
-Retrieve a list of supported countries, optionally filtered by model/provider.
+### Country: Get Many
+Retrieve a list of supported countries, optionally filtered by model/engine.
 
-### Get Task Status
+### Task: Get Status
 Check the status of a monitoring task using its task ID.
 
 ## Credentials
@@ -76,18 +78,18 @@ The node uses API Key authentication via Bearer token:
 ### Basic Example Workflow
 
 1. Add the **cloro** node to your workflow
-2. Select your **Provider** (e.g., ChatGPT, Google Search)
+2. Select your **Resource** (e.g., ChatGPT, Google Search)
 3. Choose the **Operation** (typically "Monitor")
 4. Configure your parameters:
    - For **Google Search**: Enter a query, select country, device, and other options
-   - For **AI providers**: Enter a prompt and select country
-5. Configure optional fields like include HTML, markdown, or other provider-specific options
+   - For **AI engines**: Enter a prompt and select country
+5. Configure optional fields like include HTML, markdown, or other engine-specific options
 
 ### Example: Monitoring Google Search Results
 
 ```
 Node: cloro
-Provider: Google Search
+Resource: Google Search
 Operation: Monitor
 Query: "best coffee shops in New York"
 Country: United States
@@ -101,7 +103,7 @@ Include Markdown: true
 
 ```
 Node: cloro
-Provider: ChatGPT
+Resource: ChatGPT
 Operation: Monitor
 Prompt: "What are the top 5 programming languages in 2025?"
 Country: United States
@@ -109,15 +111,16 @@ Include Raw Response: true
 Include Query Fan-Out: true
 ```
 
-### Using Get Countries
+### Using Get Many Countries
 
 ```
 Node: cloro
-Operation: Get Countries
+Resource: Country
+Operation: Get Many
 Filter by Model: chatgpt (optional)
 ```
 
-This returns a list of countries supported by the specified provider.
+This returns a list of countries supported by the specified engine.
 
 ## Resources
 
@@ -126,6 +129,11 @@ This returns a list of countries supported by the specified provider.
 * [cloro Website](https://cloro.dev)
 
 ## Version History
+
+### 0.2.0
+- Node typeVersion 2: one resource per AI engine (ChatGPT, Google AI Mode, Google Gemini, Google Search, Grok, Microsoft Copilot, Perplexity), matching the per-engine cloro monitor endpoints
+- Country (Get Many) and Task (Get Status) as dedicated resources
+- Existing workflows keep running on typeVersion 1 with the provider dropdown
 
 ### 0.1.0
 - Initial release

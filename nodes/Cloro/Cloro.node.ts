@@ -129,6 +129,29 @@ export class Cloro implements INodeType {
 						if (includeMarkdown) {
 							include.markdown = true;
 						}
+					} else if (provider === 'googleNews') {
+						// Google News uses 'query' and requires 'country'
+						const query = this.getNodeParameter('query', i) as string;
+						body.query = query;
+
+						const country = this.getNodeParameter('country', i) as string;
+						body.country = country;
+
+						const device = this.getNodeParameter('device', i) as string;
+						if (device) {
+							body.device = device;
+						}
+
+						const pages = this.getNodeParameter('pages', i) as number;
+						if (pages) {
+							body.pages = pages;
+						}
+
+						// Google News supports include.html only
+						const includeHtml = this.getNodeParameter('includeHtml', i) as boolean;
+						if (includeHtml) {
+							include.html = true;
+						}
 					} else {
 						// All other providers use 'prompt'
 						const prompt = this.getNodeParameter('prompt', i) as string;
@@ -189,12 +212,12 @@ export class Cloro implements INodeType {
 						body.include = include;
 					}
 
-					response = await cloroApiRequest.call(
-						this,
-						'POST',
-						`/v1/monitor/${provider}`,
-						body,
-					);
+					const endpoint =
+						provider === 'googleNews'
+							? '/v1/monitor/google/news'
+							: `/v1/monitor/${provider}`;
+
+					response = await cloroApiRequest.call(this, 'POST', endpoint, body);
 				} else if (operation === 'getCountries') {
 					const qs: IDataObject = {};
 					const filterByModel = this.getNodeParameter('filterByModel', i) as string;

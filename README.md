@@ -2,7 +2,7 @@
 
 This is an n8n community node for [cloro API](https://cloro.dev/docs). It lets you extract structured data from AI responses and search results in your n8n workflows.
 
-cloro is an API service that provides structured data extraction from multiple AI providers including ChatGPT, Google Search, Google Gemini, Perplexity, Microsoft Copilot, Grok, and Google AI Mode.
+cloro is an API service that provides structured data extraction from multiple AI providers including ChatGPT, Google Search, Google News, Google Gemini, Perplexity, Microsoft Copilot, Grok, and Google AI Mode.
 
 [n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/sustainable-use-license/) workflow automation platform.
 
@@ -37,6 +37,7 @@ Each engine resource supports a **Monitor** operation that extracts structured d
 - **ChatGPT** - OpenAI's ChatGPT with optional raw response and search queries
 - **Google AI Mode** - Google's AI-powered search mode
 - **Google Gemini** - Google's Gemini AI model
+- **Google News** - Google News search results
 - **Google Search** - Traditional Google Search with AI Overview support
 - **Grok** - xAI's Grok AI assistant
 - **Microsoft Copilot** - Microsoft's Copilot AI
@@ -44,6 +45,7 @@ Each engine resource supports a **Monitor** operation that extracts structured d
 
 **Engine-Specific Options:**
 - **Google Search**: Query, country, city, device type (desktop/mobile), number of pages, include HTML, include AI Overview, include markdown
+- **Google News**: Query, country (required), device type (desktop/mobile), number of pages (1-10), include HTML
 - **Other AI Engines**: Prompt, country, include HTML, include markdown
 - **ChatGPT (additional)**: Include raw response, include search queries (query fan-out)
 
@@ -131,7 +133,8 @@ This returns a list of countries supported by the specified engine.
 ## Version History
 
 ### 0.2.0
-- Node typeVersion 2: one resource per AI engine (ChatGPT, Google AI Mode, Google Gemini, Google Search, Grok, Microsoft Copilot, Perplexity), matching the per-engine cloro monitor endpoints
+- Node typeVersion 2: one resource per AI engine (ChatGPT, Google AI Mode, Google Gemini, Google News, Google Search, Grok, Microsoft Copilot, Perplexity), matching the per-engine cloro monitor endpoints
+- New Google News resource covering the `/v1/monitor/google/news` endpoint
 - Country (Get Many) and Task (Get Status) as dedicated resources
 - Existing workflows keep running on typeVersion 1 with the provider dropdown
 

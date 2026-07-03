@@ -335,7 +335,8 @@ const v1Descriptions: INodeProperties[] = [
 // /v1/monitor/<engine> endpoint, plus Country and Task utility resources.
 // ----------------------------------------------------------------------
 
-// Engine resource values double as the /v1/monitor/<engine> path segment.
+// Engine resource values double as the /v1/monitor/<engine> path segment,
+// except googleNews, which maps to /v1/monitor/google/news.
 const promptEngines = ['aimode', 'chatgpt', 'copilot', 'gemini', 'grok', 'perplexity'];
 const allEngines = [...promptEngines, 'google'];
 
@@ -366,6 +367,11 @@ const v2Descriptions: INodeProperties[] = [
 			{
 				name: 'Google Gemini',
 				value: 'gemini',
+			},
+			{
+				// eslint-disable-next-line n8n-nodes-base/node-param-resource-with-plural-option
+				name: 'Google News',
+				value: 'googleNews',
 			},
 			{
 				name: 'Google Search',
@@ -452,6 +458,28 @@ const v2Descriptions: INodeProperties[] = [
 				description: 'Extract structured data from a Google Gemini response',
 				// eslint-disable-next-line n8n-nodes-base/node-param-operation-option-action-miscased
 				action: 'Monitor Google Gemini',
+			},
+		],
+		default: 'monitor',
+	},
+	{
+		displayName: 'Operation',
+		name: 'operation',
+		type: 'options',
+		noDataExpression: true,
+		displayOptions: {
+			show: {
+				'@version': [2],
+				resource: ['googleNews'],
+			},
+		},
+		options: [
+			{
+				name: 'Monitor',
+				value: 'monitor',
+				description: 'Extract structured data from Google News results',
+				// eslint-disable-next-line n8n-nodes-base/node-param-operation-option-action-miscased
+				action: 'Monitor Google News',
 			},
 		],
 		default: 'monitor',
@@ -601,7 +629,7 @@ const v2Descriptions: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				'@version': [2],
-				resource: ['google'],
+				resource: ['google', 'googleNews'],
 				operation: ['monitor'],
 			},
 		},
@@ -641,6 +669,24 @@ const v2Descriptions: INodeProperties[] = [
 		},
 	},
 	{
+		displayName: 'Country Code Name or ID',
+		name: 'country',
+		type: 'options',
+		description: 'Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>',
+		typeOptions: {
+			loadOptionsMethod: 'getCountries',
+		},
+		default: '',
+		required: true,
+		displayOptions: {
+			show: {
+				'@version': [2],
+				resource: ['googleNews'],
+				operation: ['monitor'],
+			},
+		},
+	},
+	{
 		displayName: 'City',
 		name: 'city',
 		type: 'string',
@@ -673,7 +719,7 @@ const v2Descriptions: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				'@version': [2],
-				resource: ['google'],
+				resource: ['google', 'googleNews'],
 				operation: ['monitor'],
 			},
 		},
@@ -697,6 +743,24 @@ const v2Descriptions: INodeProperties[] = [
 		},
 	},
 	{
+		displayName: 'Number Of Pages',
+		name: 'pages',
+		type: 'number',
+		default: 1,
+		description: 'Number of news result pages to fetch (1-10)',
+		typeOptions: {
+			minValue: 1,
+			maxValue: 10,
+		},
+		displayOptions: {
+			show: {
+				'@version': [2],
+				resource: ['googleNews'],
+				operation: ['monitor'],
+			},
+		},
+	},
+	{
 		displayName: 'Include Raw HTML',
 		name: 'includeHtml',
 		type: 'boolean',
@@ -705,7 +769,7 @@ const v2Descriptions: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				'@version': [2],
-				resource: allEngines,
+				resource: [...allEngines, 'googleNews'],
 				operation: ['monitor'],
 			},
 		},

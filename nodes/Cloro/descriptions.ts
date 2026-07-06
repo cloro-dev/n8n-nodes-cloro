@@ -725,7 +725,7 @@ const v2Descriptions: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Number Of Pages',
+		displayName: 'Number of Pages',
 		name: 'pages',
 		type: 'number',
 		default: 1,
@@ -743,7 +743,7 @@ const v2Descriptions: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Number Of Pages',
+		displayName: 'Number of Pages',
 		name: 'pages',
 		type: 'number',
 		default: 1,

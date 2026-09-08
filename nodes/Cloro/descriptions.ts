@@ -157,11 +157,26 @@ const v1Descriptions: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'City',
-		name: 'city',
+		displayName: 'Location',
+		name: 'location',
 		type: 'string',
 		default: '',
-		description: 'Canonical city name for localized search (e.g., "New York, NY, US")',
+		description: 'Google canonical location name for sub-country targeting (e.g., "New York,New York,United States"). Mutually exclusive with UULE.',
+		displayOptions: {
+			show: {
+				'@version': [1],
+				resource: ['dataExtraction'],
+				operation: ['monitor'],
+				provider: ['google'],
+			},
+		},
+	},
+	{
+		displayName: 'UULE',
+		name: 'uule',
+		type: 'string',
+		default: '',
+		description: 'Pre-encoded Google UULE string for sub-country targeting. Mutually exclusive with Location.',
 		displayOptions: {
 			show: {
 				'@version': [1],
@@ -687,11 +702,25 @@ const v2Descriptions: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'City',
-		name: 'city',
+		displayName: 'Location',
+		name: 'location',
 		type: 'string',
 		default: '',
-		description: 'Canonical city name for localized search (e.g., "New York, NY, US")',
+		description: 'Google canonical location name for sub-country targeting (e.g., "New York,New York,United States"). Mutually exclusive with UULE.',
+		displayOptions: {
+			show: {
+				'@version': [2],
+				resource: ['google'],
+				operation: ['monitor'],
+			},
+		},
+	},
+	{
+		displayName: 'UULE',
+		name: 'uule',
+		type: 'string',
+		default: '',
+		description: 'Pre-encoded Google UULE string for sub-country targeting. Mutually exclusive with Location.',
 		displayOptions: {
 			show: {
 				'@version': [2],

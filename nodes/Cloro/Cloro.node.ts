@@ -90,10 +90,16 @@ export class Cloro implements INodeType {
 							body.country = country;
 						}
 
-						// Google Search-specific parameters
-						const city = this.getNodeParameter('city', i) as string;
-						if (city) {
-							body.city = city;
+						// Google Search-specific parameters. `location` and `uule`
+						// are mutually exclusive; send whichever the user filled.
+						const location = this.getNodeParameter('location', i, '') as string;
+						if (location) {
+							body.location = location;
+						}
+
+						const uule = this.getNodeParameter('uule', i, '') as string;
+						if (uule) {
+							body.uule = uule;
 						}
 
 						const device = this.getNodeParameter('device', i) as string;

@@ -216,10 +216,10 @@ const v1Descriptions: INodeProperties[] = [
 		name: 'pages',
 		type: 'number',
 		default: 1,
-		description: 'Number of result pages to fetch (1-20)',
+		description: 'Number of result pages to fetch (1-10)',
 		typeOptions: {
 			minValue: 1,
-			maxValue: 20,
+			maxValue: 10,
 		},
 		displayOptions: {
 			show: {
@@ -758,10 +758,10 @@ const v2Descriptions: INodeProperties[] = [
 		name: 'pages',
 		type: 'number',
 		default: 1,
-		description: 'Number of result pages to fetch (1-20)',
+		description: 'Number of result pages to fetch (1-10)',
 		typeOptions: {
 			minValue: 1,
-			maxValue: 20,
+			maxValue: 10,
 		},
 		displayOptions: {
 			show: {

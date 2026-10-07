@@ -236,7 +236,7 @@ export class Cloro implements INodeType {
 				} else if (operation === 'getTaskStatus') {
 					const taskId = this.getNodeParameter('taskId', i) as string;
 
-					response = await cloroApiRequest.call(this, 'GET', `/v1/tasks/${taskId}`);
+					response = await cloroApiRequest.call(this, 'GET', `/v1/async/task/${taskId}`);
 				}
 
 				returnData.push({

@@ -118,22 +118,18 @@ export class Cloro implements INodeType {
 							include.html = true;
 						}
 
-						// Google Search supports include.aioverview
+						// AI Overview markdown is nested: the API drops a top-level
+						// include.markdown on Google Search
 						const includeAiOverview = this.getNodeParameter(
 							'includeAiOverview',
 							i,
 						) as boolean;
-						if (includeAiOverview) {
-							include.aioverview = true;
-						}
-
-						// Google Search supports include.markdown for AI Overview
 						const includeMarkdown = this.getNodeParameter(
 							'includeMarkdown',
 							i,
 						) as boolean;
-						if (includeMarkdown) {
-							include.markdown = true;
+						if (includeAiOverview) {
+							include.aioverview = includeMarkdown ? { markdown: true } : true;
 						}
 					} else if (provider === 'googleNews') {
 						// Google News uses 'query' and requires 'country'

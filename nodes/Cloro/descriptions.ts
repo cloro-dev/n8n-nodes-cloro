@@ -384,8 +384,7 @@ const v2Descriptions: INodeProperties[] = [
 				value: 'gemini',
 			},
 			{
-				// eslint-disable-next-line n8n-nodes-base/node-param-resource-with-plural-option
-				name: 'Google News',
+				name: 'Google News Search',
 				value: 'googleNews',
 			},
 			{
@@ -427,8 +426,7 @@ const v2Descriptions: INodeProperties[] = [
 				name: 'Monitor',
 				value: 'monitor',
 				description: 'Extract structured data from a ChatGPT response',
-				// eslint-disable-next-line n8n-nodes-base/node-param-operation-option-action-miscased
-				action: 'Monitor ChatGPT',
+				action: 'Monitor chatgpt',
 			},
 		],
 		default: 'monitor',
@@ -449,8 +447,7 @@ const v2Descriptions: INodeProperties[] = [
 				name: 'Monitor',
 				value: 'monitor',
 				description: 'Extract structured data from a Google AI Mode response',
-				// eslint-disable-next-line n8n-nodes-base/node-param-operation-option-action-miscased
-				action: 'Monitor Google AI Mode',
+				action: 'Monitor google AI mode',
 			},
 		],
 		default: 'monitor',
@@ -471,8 +468,7 @@ const v2Descriptions: INodeProperties[] = [
 				name: 'Monitor',
 				value: 'monitor',
 				description: 'Extract structured data from a Google Gemini response',
-				// eslint-disable-next-line n8n-nodes-base/node-param-operation-option-action-miscased
-				action: 'Monitor Google Gemini',
+				action: 'Monitor google gemini',
 			},
 		],
 		default: 'monitor',
@@ -493,8 +489,7 @@ const v2Descriptions: INodeProperties[] = [
 				name: 'Monitor',
 				value: 'monitor',
 				description: 'Extract structured data from Google News results',
-				// eslint-disable-next-line n8n-nodes-base/node-param-operation-option-action-miscased
-				action: 'Monitor Google News',
+				action: 'Monitor google news',
 			},
 		],
 		default: 'monitor',
@@ -515,8 +510,7 @@ const v2Descriptions: INodeProperties[] = [
 				name: 'Monitor',
 				value: 'monitor',
 				description: 'Extract structured data from Google Search results',
-				// eslint-disable-next-line n8n-nodes-base/node-param-operation-option-action-miscased
-				action: 'Monitor Google Search',
+				action: 'Monitor google search',
 			},
 		],
 		default: 'monitor',
@@ -537,8 +531,7 @@ const v2Descriptions: INodeProperties[] = [
 				name: 'Monitor',
 				value: 'monitor',
 				description: 'Extract structured data from a Grok response',
-				// eslint-disable-next-line n8n-nodes-base/node-param-operation-option-action-miscased
-				action: 'Monitor Grok',
+				action: 'Monitor grok',
 			},
 		],
 		default: 'monitor',
@@ -559,8 +552,7 @@ const v2Descriptions: INodeProperties[] = [
 				name: 'Monitor',
 				value: 'monitor',
 				description: 'Extract structured data from a Microsoft Copilot response',
-				// eslint-disable-next-line n8n-nodes-base/node-param-operation-option-action-miscased
-				action: 'Monitor Microsoft Copilot',
+				action: 'Monitor microsoft copilot',
 			},
 		],
 		default: 'monitor',
@@ -581,8 +573,7 @@ const v2Descriptions: INodeProperties[] = [
 				name: 'Monitor',
 				value: 'monitor',
 				description: 'Extract structured data from a Perplexity response',
-				// eslint-disable-next-line n8n-nodes-base/node-param-operation-option-action-miscased
-				action: 'Monitor Perplexity',
+				action: 'Monitor perplexity',
 			},
 		],
 		default: 'monitor',

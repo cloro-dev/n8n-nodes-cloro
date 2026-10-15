@@ -176,7 +176,6 @@ export class Cloro implements INodeType {
 							'perplexity',
 							'copilot',
 							'gemini',
-							'grok',
 							'aimode',
 							'google',
 						];

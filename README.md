@@ -2,7 +2,11 @@
 
 This is an n8n community node for [cloro API](https://cloro.dev/docs). It lets you extract structured data from AI responses and search results in your n8n workflows.
 
-cloro is an API service that provides structured data extraction from multiple AI providers including ChatGPT, Google Search, Google News, Google Gemini, Perplexity, Microsoft Copilot, Grok, and Google AI Mode.
+cloro is an API service that provides structured data extraction from multiple AI providers including ChatGPT, Google Search, Google News, Google Gemini, Perplexity, Microsoft Copilot, and Google AI Mode.
+
+> **Perplexity is temporarily unavailable.** The cloro API rejects Perplexity
+> requests with a `400` (`MODEL_UNAVAILABLE`), and they cost no credits.
+> The [changelog](https://cloro.dev/docs/changelog) will say when it is back.
 
 [n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/sustainable-use-license/) workflow automation platform.
 
@@ -39,7 +43,6 @@ Each engine resource supports a **Monitor** operation that extracts structured d
 - **Google Gemini** - Google's Gemini AI model
 - **Google News** - Google News search results
 - **Google Search** - Traditional Google Search with AI Overview support
-- **Grok** - xAI's Grok AI assistant
 - **Microsoft Copilot** - Microsoft's Copilot AI
 - **Perplexity** - Perplexity AI search
 
@@ -131,6 +134,10 @@ This returns a list of countries supported by the specified engine.
 * [cloro Website](https://cloro.dev)
 
 ## Version History
+
+### 0.3.0
+- Removed the Grok resource and the Grok provider option. grok.com now shows a sign-up wall to logged-out visitors, so cloro cannot get Grok answers. The cloro API rejects `/v1/monitor/grok` with a `400` (`MODEL_UNAVAILABLE`).
+- Workflows that use Grok stop working. Change them to use a different engine.
 
 ### 0.2.0
 - Node typeVersion 2: one resource per AI engine (ChatGPT, Google AI Mode, Google Gemini, Google News, Google Search, Grok, Microsoft Copilot, Perplexity), matching the per-engine cloro monitor endpoints

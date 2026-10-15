@@ -53,10 +53,6 @@ const v1Descriptions: INodeProperties[] = [
 				value: 'google',
 			},
 			{
-				name: 'Grok',
-				value: 'grok',
-			},
-			{
 				name: 'Microsoft Copilot',
 				value: 'copilot',
 			},
@@ -135,7 +131,7 @@ const v1Descriptions: INodeProperties[] = [
 				'@version': [1],
 				resource: ['dataExtraction'],
 				operation: ['monitor'],
-				provider: ['chatgpt', 'perplexity', 'copilot', 'gemini', 'grok', 'aimode'],
+				provider: ['chatgpt', 'perplexity', 'copilot', 'gemini', 'aimode'],
 			},
 		},
 	},
@@ -270,7 +266,7 @@ const v1Descriptions: INodeProperties[] = [
 				'@version': [1],
 				resource: ['dataExtraction'],
 				operation: ['monitor'],
-				provider: ['chatgpt', 'perplexity', 'copilot', 'gemini', 'grok', 'aimode', 'google'],
+				provider: ['chatgpt', 'perplexity', 'copilot', 'gemini', 'aimode', 'google'],
 			},
 		},
 	},
@@ -352,7 +348,7 @@ const v1Descriptions: INodeProperties[] = [
 
 // Engine resource values double as the /v1/monitor/<engine> path segment,
 // except googleNews, which maps to /v1/monitor/google/news.
-const promptEngines = ['aimode', 'chatgpt', 'copilot', 'gemini', 'grok', 'perplexity'];
+const promptEngines = ['aimode', 'chatgpt', 'copilot', 'gemini', 'perplexity'];
 const allEngines = [...promptEngines, 'google'];
 
 const v2Descriptions: INodeProperties[] = [
@@ -390,10 +386,6 @@ const v2Descriptions: INodeProperties[] = [
 			{
 				name: 'Google Search',
 				value: 'google',
-			},
-			{
-				name: 'Grok',
-				value: 'grok',
 			},
 			{
 				name: 'Microsoft Copilot',
@@ -511,27 +503,6 @@ const v2Descriptions: INodeProperties[] = [
 				value: 'monitor',
 				description: 'Extract structured data from Google Search results',
 				action: 'Monitor google search',
-			},
-		],
-		default: 'monitor',
-	},
-	{
-		displayName: 'Operation',
-		name: 'operation',
-		type: 'options',
-		noDataExpression: true,
-		displayOptions: {
-			show: {
-				'@version': [2],
-				resource: ['grok'],
-			},
-		},
-		options: [
-			{
-				name: 'Monitor',
-				value: 'monitor',
-				description: 'Extract structured data from a Grok response',
-				action: 'Monitor grok',
 			},
 		],
 		default: 'monitor',

@@ -72,7 +72,6 @@ export async function getModels(
 
 	const providers = [
 		{ name: 'ChatGPT', value: 'chatgpt' },
-		{ name: 'Grok', value: 'grok' },
 		{ name: 'Google AI Mode', value: 'aimode' },
 		{ name: 'Google Gemini', value: 'gemini' },
 		{ name: 'Google Search', value: 'google' },

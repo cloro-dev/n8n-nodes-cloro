@@ -4,10 +4,6 @@ This is an n8n community node for [cloro API](https://cloro.dev/docs). It lets y
 
 cloro is an API service that provides structured data extraction from multiple AI providers including ChatGPT, Google Search, Google News, Google Gemini, Perplexity, Microsoft Copilot, and Google AI Mode.
 
-> **Perplexity is temporarily unavailable.** The cloro API rejects Perplexity
-> requests with a `400` (`MODEL_UNAVAILABLE`), and they cost no credits.
-> The [changelog](https://cloro.dev/docs/changelog) will say when it is back.
-
 [n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/sustainable-use-license/) workflow automation platform.
 
 [Installation](#installation)

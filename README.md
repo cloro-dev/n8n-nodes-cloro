@@ -43,7 +43,7 @@ Each engine resource supports a **Monitor** operation that extracts structured d
 - **Perplexity** - Perplexity AI search
 
 **Engine-Specific Options:**
-- **Google Search**: Query, country, city, device type (desktop/mobile), number of pages, include HTML, include AI Overview, include markdown
+- **Google Search**: Query, country, location or UULE (sub-country targeting), device type (desktop/mobile), number of pages, include HTML, include AI Overview, include markdown
 - **Google News**: Query, country (required), device type (desktop/mobile), number of pages (1-10), include HTML
 - **Other AI Engines**: Prompt, country, include HTML, include markdown
 - **ChatGPT (additional)**: Include raw response, include search queries (query fan-out)

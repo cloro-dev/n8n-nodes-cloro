@@ -75,8 +75,6 @@ export async function getModels(
 		{ name: 'Google AI Mode', value: 'aimode' },
 		{ name: 'Google Gemini', value: 'gemini' },
 		{ name: 'Google Search', value: 'google' },
-		{ name: 'Microsoft Copilot', value: 'copilot' },
-		{ name: 'Perplexity', value: 'perplexity' },
 	];
 
 	for (const provider of providers) {

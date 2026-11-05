@@ -173,8 +173,6 @@ export class Cloro implements INodeType {
 						// Only AI-based providers support markdown
 						const markdownProviders = [
 							'chatgpt',
-							'perplexity',
-							'copilot',
 							'gemini',
 							'aimode',
 							'google',

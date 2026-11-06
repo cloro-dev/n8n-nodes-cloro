@@ -2,7 +2,7 @@
 
 This is an n8n community node for [cloro API](https://cloro.dev/docs). It lets you extract structured data from AI responses and search results in your n8n workflows.
 
-cloro is an API service that provides structured data extraction from multiple AI providers including ChatGPT, Google Search, Google News, Google Gemini, Perplexity, Microsoft Copilot, and Google AI Mode.
+cloro is an API service that provides structured data extraction from multiple AI providers including ChatGPT, Google Search, Google News, Google Gemini, and Google AI Mode.
 
 [n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/sustainable-use-license/) workflow automation platform.
 
@@ -39,8 +39,6 @@ Each engine resource supports a **Monitor** operation that extracts structured d
 - **Google Gemini** - Google's Gemini AI model
 - **Google News** - Google News search results
 - **Google Search** - Traditional Google Search with AI Overview support
-- **Microsoft Copilot** - Microsoft's Copilot AI
-- **Perplexity** - Perplexity AI search
 
 **Engine-Specific Options:**
 - **Google Search**: Query, country, location or UULE (sub-country targeting), device type (desktop/mobile), number of pages, include HTML, include AI Overview, include markdown
@@ -130,6 +128,10 @@ This returns a list of countries supported by the specified engine.
 * [cloro Website](https://cloro.dev)
 
 ## Version History
+
+### 0.4.0
+- Removed the Microsoft Copilot and Perplexity resources and provider options. cloro discontinued Perplexity: Perplexity blocks access for logged-out sessions. cloro discontinued Microsoft Copilot: Copilot blocks access for logged-out sessions.
+- Workflows that use Microsoft Copilot or Perplexity stop working. Change them to use a different engine.
 
 ### 0.3.0
 - Removed the Grok resource and the Grok provider option. grok.com now shows a sign-up wall to logged-out visitors, so cloro cannot get Grok answers. The cloro API rejects `/v1/monitor/grok` with a `400` (`MODEL_UNAVAILABLE`).

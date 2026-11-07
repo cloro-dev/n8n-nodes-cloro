@@ -2,7 +2,7 @@
 
 This is an n8n community node for [cloro API](https://cloro.dev/docs). It lets you extract structured data from AI responses and search results in your n8n workflows.
 
-cloro is an API service that provides structured data extraction from multiple AI providers including ChatGPT, Google Search, Google News, Google Gemini, and Google AI Mode.
+cloro is an API service that provides structured data extraction from multiple AI providers including ChatGPT, Google Search, Google News, Google Gemini, Google AI Mode, and Bing AI Mode.
 
 [n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/sustainable-use-license/) workflow automation platform.
 
@@ -34,6 +34,7 @@ Since version 0.2.0 each AI engine is its own resource, mapping 1:1 to the match
 
 Each engine resource supports a **Monitor** operation that extracts structured data from that engine:
 
+- **Bing AI Mode** - The Bing AI Mode answer, with sources and citation pills (`POST /v1/monitor/bing/aimode`)
 - **ChatGPT** - OpenAI's ChatGPT with optional raw response and search queries
 - **Google AI Mode** - Google's AI-powered search mode
 - **Google Gemini** - Google's Gemini AI model
@@ -45,6 +46,7 @@ Each engine resource supports a **Monitor** operation that extracts structured d
 - **Google News**: Query, country (required), device type (desktop/mobile), number of pages (1-10), include HTML
 - **Other AI Engines**: Prompt, country, include HTML, include markdown
 - **ChatGPT (additional)**: Include raw response, include search queries (query fan-out)
+- **Bing AI Mode**: The prompt can have a maximum of 3,500 characters after URL encoding (fewer for non-Latin scripts)
 
 ### Country: Get Many
 Retrieve a list of supported countries, optionally filtered by model/engine.
@@ -128,6 +130,10 @@ This returns a list of countries supported by the specified engine.
 * [cloro Website](https://cloro.dev)
 
 ## Version History
+
+### 0.5.0
+- Added the Bing AI Mode resource. Its Monitor operation sends a prompt to `POST /v1/monitor/bing/aimode` and returns the answer text, the sources and the citation pills. Options: prompt, country, include HTML, include markdown.
+- Added Bing AI Mode (`bing_aimode`) to the model filter of Country: Get Many.
 
 ### 0.4.0
 - Removed the Microsoft Copilot and Perplexity resources and provider options. cloro discontinued Perplexity: Perplexity blocks access for logged-out sessions. cloro discontinued Microsoft Copilot: Copilot blocks access for logged-out sessions.

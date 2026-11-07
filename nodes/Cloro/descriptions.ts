@@ -339,8 +339,9 @@ const v1Descriptions: INodeProperties[] = [
 // ----------------------------------------------------------------------
 
 // Engine resource values double as the /v1/monitor/<engine> path segment,
-// except googleNews, which maps to /v1/monitor/google/news.
-const promptEngines = ['aimode', 'chatgpt', 'gemini'];
+// except googleNews, which maps to /v1/monitor/google/news, and bingAimode,
+// which maps to /v1/monitor/bing/aimode.
+const promptEngines = ['aimode', 'bingAimode', 'chatgpt', 'gemini'];
 const allEngines = [...promptEngines, 'google'];
 
 const v2Descriptions: INodeProperties[] = [
@@ -355,6 +356,10 @@ const v2Descriptions: INodeProperties[] = [
 			},
 		},
 		options: [
+			{
+				name: 'Bing AI Mode',
+				value: 'bingAimode',
+			},
 			{
 				name: 'ChatGPT',
 				value: 'chatgpt',
@@ -424,6 +429,27 @@ const v2Descriptions: INodeProperties[] = [
 				value: 'monitor',
 				description: 'Extract structured data from a Google AI Mode response',
 				action: 'Monitor google AI mode',
+			},
+		],
+		default: 'monitor',
+	},
+	{
+		displayName: 'Operation',
+		name: 'operation',
+		type: 'options',
+		noDataExpression: true,
+		displayOptions: {
+			show: {
+				'@version': [2],
+				resource: ['bingAimode'],
+			},
+		},
+		options: [
+			{
+				name: 'Monitor',
+				value: 'monitor',
+				description: 'Extract structured data from a Bing AI Mode response',
+				action: 'Monitor bing AI mode',
 			},
 		],
 		default: 'monitor',

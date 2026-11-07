@@ -172,6 +172,7 @@ export class Cloro implements INodeType {
 
 						// Only AI-based providers support markdown
 						const markdownProviders = [
+							'bingAimode',
 							'chatgpt',
 							'gemini',
 							'aimode',
@@ -214,7 +215,9 @@ export class Cloro implements INodeType {
 					const endpoint =
 						provider === 'googleNews'
 							? '/v1/monitor/google/news'
-							: `/v1/monitor/${provider}`;
+							: provider === 'bingAimode'
+								? '/v1/monitor/bing/aimode'
+								: `/v1/monitor/${provider}`;
 
 					response = await cloroApiRequest.call(this, 'POST', endpoint, body);
 				} else if (operation === 'getCountries') {

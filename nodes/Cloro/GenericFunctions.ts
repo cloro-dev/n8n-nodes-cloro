@@ -72,6 +72,7 @@ export async function getModels(
 
 	const providers = [
 		{ name: 'Bing AI Mode', value: 'bing_aimode' },
+		{ name: 'Bing Search', value: 'bing' },
 		{ name: 'ChatGPT', value: 'chatgpt' },
 		{ name: 'Google AI Mode', value: 'aimode' },
 		{ name: 'Google Gemini', value: 'gemini' },

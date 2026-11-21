@@ -340,7 +340,8 @@ const v1Descriptions: INodeProperties[] = [
 
 // Engine resource values double as the /v1/monitor/<engine> path segment,
 // except googleNews, which maps to /v1/monitor/google/news, and bingAimode,
-// which maps to /v1/monitor/bing/aimode.
+// which maps to /v1/monitor/bing/aimode. The bing resource (Bing Search) maps
+// to /v1/monitor/bing.
 const promptEngines = ['aimode', 'bingAimode', 'chatgpt', 'gemini'];
 const allEngines = [...promptEngines, 'google'];
 
@@ -359,6 +360,10 @@ const v2Descriptions: INodeProperties[] = [
 			{
 				name: 'Bing AI Mode',
 				value: 'bingAimode',
+			},
+			{
+				name: 'Bing Search',
+				value: 'bing',
 			},
 			{
 				name: 'ChatGPT',
@@ -450,6 +455,27 @@ const v2Descriptions: INodeProperties[] = [
 				value: 'monitor',
 				description: 'Extract structured data from a Bing AI Mode response',
 				action: 'Monitor bing AI mode',
+			},
+		],
+		default: 'monitor',
+	},
+	{
+		displayName: 'Operation',
+		name: 'operation',
+		type: 'options',
+		noDataExpression: true,
+		displayOptions: {
+			show: {
+				'@version': [2],
+				resource: ['bing'],
+			},
+		},
+		options: [
+			{
+				name: 'Monitor',
+				value: 'monitor',
+				description: 'Extract structured data from Bing Search results',
+				action: 'Monitor bing search',
 			},
 		],
 		default: 'monitor',
@@ -574,7 +600,7 @@ const v2Descriptions: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				'@version': [2],
-				resource: ['google', 'googleNews'],
+				resource: ['bing', 'google', 'googleNews'],
 				operation: ['monitor'],
 			},
 		},
@@ -626,7 +652,7 @@ const v2Descriptions: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				'@version': [2],
-				resource: ['googleNews'],
+				resource: ['bing', 'googleNews'],
 				operation: ['monitor'],
 			},
 		},
@@ -728,7 +754,7 @@ const v2Descriptions: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				'@version': [2],
-				resource: [...allEngines, 'googleNews'],
+				resource: [...allEngines, 'bing', 'googleNews'],
 				operation: ['monitor'],
 			},
 		},
@@ -742,7 +768,7 @@ const v2Descriptions: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				'@version': [2],
-				resource: ['google'],
+				resource: ['bing', 'google'],
 				operation: ['monitor'],
 			},
 		},
@@ -756,7 +782,7 @@ const v2Descriptions: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				'@version': [2],
-				resource: allEngines,
+				resource: [...allEngines, 'bing'],
 				operation: ['monitor'],
 			},
 		},

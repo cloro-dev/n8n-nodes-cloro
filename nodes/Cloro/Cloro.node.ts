@@ -131,6 +131,32 @@ export class Cloro implements INodeType {
 						if (includeAiOverview) {
 							include.aioverview = includeMarkdown ? { markdown: true } : true;
 						}
+					} else if (provider === 'bing') {
+						// Bing Search uses 'query' and requires 'country'. The country
+						// sets the Bing market.
+						const query = this.getNodeParameter('query', i) as string;
+						body.query = query;
+
+						const country = this.getNodeParameter('country', i) as string;
+						body.country = country;
+
+						const includeHtml = this.getNodeParameter('includeHtml', i) as boolean;
+						if (includeHtml) {
+							include.html = true;
+						}
+
+						// As on Google Search, the AI Overview markdown is nested
+						const includeAiOverview = this.getNodeParameter(
+							'includeAiOverview',
+							i,
+						) as boolean;
+						const includeMarkdown = this.getNodeParameter(
+							'includeMarkdown',
+							i,
+						) as boolean;
+						if (includeAiOverview) {
+							include.aioverview = includeMarkdown ? { markdown: true } : true;
+						}
 					} else if (provider === 'googleNews') {
 						// Google News uses 'query' and requires 'country'
 						const query = this.getNodeParameter('query', i) as string;

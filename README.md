@@ -35,7 +35,7 @@ Since version 0.2.0 each AI engine is its own resource, mapping 1:1 to the match
 Each engine resource supports a **Monitor** operation that extracts structured data from that engine:
 
 - **Bing AI Mode** - The Bing AI Mode answer, with sources and citation pills (`POST /v1/monitor/bing/aimode`)
-- **Bing Search** - Bing organic results, with the AI Overview (Bing's AI summary at the top of the results page) as an option (`POST /v1/monitor/bing`)
+- **Bing Search** - Bing organic results and ads, with the AI Overview (Bing's AI summary at the top of the results page) as an option (`POST /v1/monitor/bing`)
 - **ChatGPT** - OpenAI's ChatGPT with optional raw response and search queries
 - **Google AI Mode** - Google's AI-powered search mode
 - **Google Gemini** - Google's Gemini AI model
@@ -48,7 +48,7 @@ Each engine resource supports a **Monitor** operation that extracts structured d
 - **Other AI Engines**: Prompt, country, include HTML, include markdown
 - **ChatGPT (additional)**: Include raw response, include search queries (query fan-out)
 - **Bing AI Mode**: The prompt can have a maximum of 3,500 characters after URL encoding (fewer for non-Latin scripts)
-- **Bing Search**: Query, country (required), include HTML, include AI Overview, include markdown. The query can have a maximum of 3,500 characters after URL encoding (fewer for non-Latin scripts). The country sets the Bing market. Bing Search is not available in CN, KR and RU. Include markdown adds the AI Overview markdown when include AI Overview is on
+- **Bing Search**: Query, country (required), number of pages (1-10), first result, include HTML, include AI Overview, include markdown. The query can have a maximum of 3,500 characters after URL encoding (fewer for non-Latin scripts). The country sets the Bing market. Bing Search is not available in CN, KR and RU. Include markdown adds the AI Overview markdown when include AI Overview is on
 
 ### Country: Get Many
 Retrieve a list of supported countries, optionally filtered by model/engine.

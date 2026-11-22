@@ -140,6 +140,16 @@ export class Cloro implements INodeType {
 						const country = this.getNodeParameter('country', i) as string;
 						body.country = country;
 
+						const pages = this.getNodeParameter('pages', i) as number;
+						if (pages) {
+							body.pages = pages;
+						}
+
+						const first = this.getNodeParameter('first', i) as number;
+						if (first) {
+							body.first = first;
+						}
+
 						const includeHtml = this.getNodeParameter('includeHtml', i) as boolean;
 						if (includeHtml) {
 							include.html = true;

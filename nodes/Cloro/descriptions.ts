@@ -722,7 +722,25 @@ const v2Descriptions: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				'@version': [2],
-				resource: ['google'],
+				resource: ['bing', 'google'],
+				operation: ['monitor'],
+			},
+		},
+	},
+	{
+		displayName: 'First Result',
+		name: 'first',
+		type: 'number',
+		default: 1,
+		description:
+			'The result to start at. Bing shows no AI Overview when it is more than 1.',
+		typeOptions: {
+			minValue: 1,
+		},
+		displayOptions: {
+			show: {
+				'@version': [2],
+				resource: ['bing'],
 				operation: ['monitor'],
 			},
 		},

@@ -35,7 +35,7 @@ Since version 0.2.0 each AI engine is its own resource, mapping 1:1 to the match
 Each engine resource supports a **Monitor** operation that extracts structured data from that engine:
 
 - **Bing AI Mode** - The Bing AI Mode answer, with sources and citation pills (`POST /v1/monitor/bing/aimode`)
-- **Bing Search** - Bing organic results, with the AI Overview (Bing's AI summary at the top of the results page) as an option (`POST /v1/monitor/bing`)
+- **Bing Search** - Bing organic results and ads, with the AI Overview (Bing's AI summary at the top of the results page) as an option (`POST /v1/monitor/bing`)
 - **ChatGPT** - OpenAI's ChatGPT with optional raw response and search queries
 - **Google AI Mode** - Google's AI-powered search mode
 - **Google Gemini** - Google's Gemini AI model

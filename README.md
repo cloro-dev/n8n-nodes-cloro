@@ -48,7 +48,7 @@ Each engine resource supports a **Monitor** operation that extracts structured d
 - **Other AI Engines**: Prompt, country, include HTML, include markdown
 - **ChatGPT (additional)**: Include raw response, include search queries (query fan-out)
 - **Bing AI Mode**: The prompt can have a maximum of 3,500 characters after URL encoding (fewer for non-Latin scripts)
-- **Bing Search**: Query, country (required), include HTML, include AI Overview, include markdown. The query can have a maximum of 3,500 characters after URL encoding (fewer for non-Latin scripts). The country sets the Bing market. Bing Search is not available in CN, KR and RU. Include markdown adds the AI Overview markdown when include AI Overview is on
+- **Bing Search**: Query, country (required), number of pages (1-10), first result, include HTML, include AI Overview, include markdown. The query can have a maximum of 3,500 characters after URL encoding (fewer for non-Latin scripts). The country sets the Bing market. Bing Search is not available in CN, KR and RU. Include markdown adds the AI Overview markdown when include AI Overview is on
 
 ### Country: Get Many
 Retrieve a list of supported countries, optionally filtered by model/engine.

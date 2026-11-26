@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-cloro",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "description": "cloro is the API for AI answers. This n8n community node returns the answers of AI answer engines and search engines as structured data.",
   "license": "MIT",
   "homepage": "https://github.com/cloro-dev/n8n-nodes-cloro#readme",

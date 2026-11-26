@@ -127,6 +127,7 @@ export class Cloro implements INodeType {
 						const includeMarkdown = this.getNodeParameter(
 							'includeMarkdown',
 							i,
+							false,
 						) as boolean;
 						if (includeAiOverview) {
 							include.aioverview = includeMarkdown ? { markdown: true } : true;
@@ -163,6 +164,7 @@ export class Cloro implements INodeType {
 						const includeMarkdown = this.getNodeParameter(
 							'includeMarkdown',
 							i,
+							false,
 						) as boolean;
 						if (includeAiOverview) {
 							include.aioverview = includeMarkdown ? { markdown: true } : true;
@@ -218,6 +220,7 @@ export class Cloro implements INodeType {
 							const includeMarkdown = this.getNodeParameter(
 								'includeMarkdown',
 								i,
+								false,
 							) as boolean;
 							if (includeMarkdown) {
 								include.markdown = true;

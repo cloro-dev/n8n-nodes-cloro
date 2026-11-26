@@ -258,7 +258,25 @@ const v1Descriptions: INodeProperties[] = [
 				'@version': [1],
 				resource: ['dataExtraction'],
 				operation: ['monitor'],
-				provider: ['chatgpt', 'gemini', 'aimode', 'google'],
+				provider: ['chatgpt', 'gemini', 'aimode'],
+			},
+		},
+	},
+	{
+		// Google Search sends markdown only inside include.aioverview, so the
+		// toggle shows only when Include AI Overview is on
+		displayName: 'Include Markdown',
+		name: 'includeMarkdown',
+		type: 'boolean',
+		default: false,
+		description: 'Whether to include the AI Overview as markdown in the result',
+		displayOptions: {
+			show: {
+				'@version': [1],
+				resource: ['dataExtraction'],
+				operation: ['monitor'],
+				provider: ['google'],
+				includeAiOverview: [true],
 			},
 		},
 	},
@@ -800,8 +818,26 @@ const v2Descriptions: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				'@version': [2],
-				resource: [...allEngines, 'bing'],
+				resource: promptEngines,
 				operation: ['monitor'],
+			},
+		},
+	},
+	{
+		// Google Search and Bing Search send markdown only inside
+		// include.aioverview, so the toggle shows only when Include AI Overview
+		// is on
+		displayName: 'Include Markdown',
+		name: 'includeMarkdown',
+		type: 'boolean',
+		default: false,
+		description: 'Whether to include the AI Overview as markdown in the result',
+		displayOptions: {
+			show: {
+				'@version': [2],
+				resource: ['google', 'bing'],
+				operation: ['monitor'],
+				includeAiOverview: [true],
 			},
 		},
 	},

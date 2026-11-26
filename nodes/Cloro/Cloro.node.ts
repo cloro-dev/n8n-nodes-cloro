@@ -21,7 +21,7 @@ export class Cloro implements INodeType {
 		group: ['transform'],
 		version: [1, 2],
 		subtitle: '={{$parameter["operation"]}}',
-		description: 'Extract structured data from AI responses and search results via cloro API',
+		description: 'cloro is the API for AI answers. Get answers, sources and citations as structured data.',
 		defaults: {
 			name: 'Cloro',
 		},

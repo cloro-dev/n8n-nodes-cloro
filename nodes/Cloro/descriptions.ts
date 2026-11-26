@@ -76,8 +76,8 @@ const v1Descriptions: INodeProperties[] = [
 			{
 				name: 'Get Task Status',
 				value: 'getTaskStatus',
-				description: 'Get status of a monitoring task',
-				action: 'Get status of a monitoring task',
+				description: 'Get the status of a task',
+				action: 'Get the status of a task',
 			},
 			{
 				name: 'Monitor',
@@ -579,7 +579,7 @@ const v2Descriptions: INodeProperties[] = [
 			{
 				name: 'Get Status',
 				value: 'getStatus',
-				description: 'Get status of a monitoring task',
+				description: 'Get the status of a task',
 				action: 'Get task status',
 			},
 		],

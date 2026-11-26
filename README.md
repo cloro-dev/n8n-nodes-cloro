@@ -2,7 +2,7 @@
 
 This is an n8n community node for [cloro API](https://cloro.dev/docs). It lets you extract structured data from AI responses and search results in your n8n workflows.
 
-cloro is an API service that provides structured data extraction from multiple AI providers including ChatGPT, Google Search, Google News, Google Gemini, Google AI Mode, Bing AI Mode, and Bing Search.
+cloro is the API for AI answers. cloro is an API that returns the answers of AI answer engines and search engines as structured data: the answer text, its sources and its citations. This node supports ChatGPT, Google Search, Google News, Google AI Mode, Gemini, Bing Search and Bing AI Mode (Copilot Search in Bing). Google AI Overview is an option of Google Search.
 
 [n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/sustainable-use-license/) workflow automation platform.
 
@@ -54,7 +54,7 @@ Each engine resource supports a **Monitor** operation that extracts structured d
 Retrieve a list of supported countries, optionally filtered by model/engine.
 
 ### Task: Get Status
-Check the status of a monitoring task using its task ID.
+Check the status of a task using its task ID.
 
 ## Credentials
 
@@ -88,7 +88,7 @@ The node uses API Key authentication via Bearer token:
    - For **AI engines**: Enter a prompt and select country
 5. Configure optional fields like include HTML, markdown, or other engine-specific options
 
-### Example: Monitoring Google Search Results
+### Example: Get Google Search results
 
 ```
 Node: cloro
